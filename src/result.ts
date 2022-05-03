@@ -332,7 +332,7 @@ export class ResultType<T, E> {
     * assert.equal(xand.unwrapErr(), 1);
     * ```
     */
-   andThen<U, E1>(this: Result<T, E>, f: (val: T) => Result<U, E1>): Result<U, E | E1> {
+   andThen<U>(this: Result<T, E>, f: (val: T) => Result<U, E>): Result<U, E> {
       return this[T] ? f(this[Val] as T) : (this as any);
    }
 
